@@ -65,7 +65,9 @@ class Dashboard extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createTshirt(this.state)
+    this.props.createTshirt(this.state);
+    this.props.history.push('/');
+
   }
   render() {
     return (

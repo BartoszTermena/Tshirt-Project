@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Tshirts from './products/Tshirts';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 class Dashboard extends Component {
   render() {
     const {tshirts} = this.props;
+
     return (
         <React.Fragment>
              Dashboard
@@ -22,8 +25,14 @@ class Dashboard extends Component {
   }
 }
 const mapStateToPropst = (state) => {
+
   return {
-    tshirts: state.store.store
+    tshirts: state.firestore.ordered.tshirts
   }
 }
-export default connect(mapStateToPropst)(Dashboard);
+export default compose(
+  connect(mapStateToPropst),
+  firestoreConnect([
+    { collection: 'tshirts' }
+  ])
+)(Dashboard);

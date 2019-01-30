@@ -13,7 +13,7 @@ export default class Product extends Component {
     })
   }
   render() {
-      const {title, price, img} = this.props.shirt;
+      const {author, color, createdAt, lowerText, textColor, textSize, upperText, url} = this.props.shirt;
     return (
       <Fragment> 
         <Modal 
@@ -26,22 +26,22 @@ export default class Product extends Component {
         <div className="img-container">
           <div className="card card-content align-items-center card-img-top" >
             <div className="imgTshirt text-center">
-              <img className="card-img-top" src={`../../img/black.png`} alt="black Tshirt" />
+              <img className="card-img-top" src={`../../img/${color}.png`} alt="black Tshirt" />
             </div>
                   <div className="memeText text-center " >
                     <div className="upperText">
-                      <p>upp</p>
+                      <p style={{fontSize: textSize*0.3, color: textColor}}>{upperText}</p>
                     </div>
-                    <img className="size-img" src={'../../img/400x300.png'}
+                    <img className="size-img" src={`${url} || '../../img/400x300.png'`}
                     alt="photo" />
                     <div className="lowerText">
-                      <p>lower</p>
+                      <p style={{fontSize: textSize*0.3, color: textColor}}>{lowerText}</p>
                     </div>
                   </div>
                   
                 </div>
                 <div className="card-footer d-flex justify-content-between mt-4">
-            <p className="text-card align-self-center mb-0">title </p>
+            <p className="text-card align-self-center mb-0">{author}</p>
             <h5 className="text-card mb-0 mt-4">
               <span className="mr-1"> $</span>
               12.99
@@ -62,7 +62,7 @@ export default class Product extends Component {
 const ProductWrapper = styled.div`
   .card {
     border-color: transparent;
-    transition: all 3s linerar;
+    transition: all s linerar;
   }
   .card-footer{
     background:transparent;
@@ -84,12 +84,13 @@ const ProductWrapper = styled.div`
     cursor:pointer;
   }
   .card-img-top{
+    top: 20px;
     transition: all 0.5s linear;
     max-width: 250px;
     max-heihgt: 300px;
   }
   .img-container:hover .card-img-top{
-    transform:scale(1.2);
+    transform:scale(1.05);
   }
   .cart-btn{
     position:absolute;
@@ -116,7 +117,6 @@ const ProductWrapper = styled.div`
   }
   .imgTshirt {
     position: relative;
-   
 }
 .memeText {
     position: absolute;

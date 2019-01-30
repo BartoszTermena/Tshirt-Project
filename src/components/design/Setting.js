@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Setting.css';
 
 
 
-const Setting = ({submit, color, text, uploadImage, textSize, textColor}) => {
+const Setting = ({submit, color, text, uploadImage, textSize, textColor, history}) => {
   return (
     <div className="card bg-light container">
       <h3 className="text-center">Settings</h3>
@@ -36,10 +37,11 @@ const Setting = ({submit, color, text, uploadImage, textSize, textColor}) => {
           <option>Blue</option>
         </select>
       <hr />
-      <button 
-      className="btn btn-primary btn-sm mb-2"
-      onClick={submit}
-      >Save</button>
+      
+        <button 
+        className="btn btn-primary btn-sm mb-2 btn-block"
+        onClick={submit}
+        >Save</button>
     </div>
   )
 }
