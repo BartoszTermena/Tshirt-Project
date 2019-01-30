@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Tshirts from './Tshirts'
+import Tshirts from './products/Tshirts'
 
 class Dashboard extends Component {
   state = {

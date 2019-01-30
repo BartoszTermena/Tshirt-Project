@@ -1,20 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import Modal from '../layout/Modal';
 
 export default class Product extends Component {
+  state = {
+    openModal: false
+  }
+  handleModal = () => {
+    this.setState({
+      openModal: !this.state.openModal
+    })
+  }
   render() {
       const {title, price, img} = this.props.shirt;
     return (
-      <ProductWrapper className="card-deck row mr-2">
+      <Fragment> 
+        <Modal 
+        handleModal={this.handleModal} 
+        modal={this.state.openModal}
+        data={this.props.shirt}/>
+      <ProductWrapper className="card-deck row mr-2" onClick={this.handleModal}>
         <div className="card-group ">
         <div className="card mt-4">
             <div className="img-container">
-              <Link to="/details">
               <img src={img} alt="img" className="card-img-top" />
-              </Link>
             </div>
           <div className="card-footer d-flex justify-content-between">
             <p className="text-card align-self-center mb-0">title </p>
@@ -26,6 +36,7 @@ export default class Product extends Component {
         </div> 
         </div>
       </ProductWrapper>
+      </Fragment>
     )
   }
 }
@@ -44,7 +55,6 @@ const ProductWrapper = styled.div`
   .card {
     border-color: transparent;
     transition: all 3s linerar;
-    
   }
   .card-footer{
     background:transparent;
@@ -63,6 +73,7 @@ const ProductWrapper = styled.div`
   .img-container {
     position: relative;
     overflow: hidden;
+    cursor:pointer;
   }
   .card-img-top{
     transition: all 0.5s linear;
