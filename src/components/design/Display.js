@@ -3,7 +3,7 @@ import './Display.css';
 
 
 const Display = ({display}) => {
-  const {color, upperText, lowerText, memeImg} = display;
+  const {color, upperText, lowerText, memeImg, url} = display;
   const imgSrc = `../../img/${color}.png`
   return (
     <div className="card card-content">
@@ -14,7 +14,7 @@ const Display = ({display}) => {
         <div className="upperText">
           <p>{upperText}</p>
         </div>
-        <img src="../../img/400x300.png"
+        <img src={`${url}` || '../../img/400x300.png'}
         alt="photo" />
         <div className="lowerText">
           <p>{lowerText}</p>

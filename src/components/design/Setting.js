@@ -3,7 +3,7 @@ import './Setting.css';
 
 
 
-const Setting = ({color, text}) => {
+const Setting = ({color, text, uploadImage}) => {
   return (
     <div className="card bg-light container">
       <h3 className="text-center">Settings</h3>
@@ -22,7 +22,7 @@ const Setting = ({color, text}) => {
       <hr />
       <h4>Upload Image</h4>
       <div className="form-group">
-        <input type="file" className="form-control" />
+        <input onChange={uploadImage} type="file" className="form-control" />
       </div>
       <hr />
       <h4>Text size</h4>
