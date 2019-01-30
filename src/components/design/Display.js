@@ -2,8 +2,8 @@ import React from 'react'
 import './Display.css';
 
 
-const Display = ({display}) => {
-  const {color, upperText, lowerText, memeImg, url} = display;
+const Display = ({display, formatText}) => {
+  const {color, upperText, lowerText, url, textColor} = display;
   const imgSrc = `../../img/${color}.png`
   return (
     <div className="card card-content">
@@ -12,12 +12,12 @@ const Display = ({display}) => {
       </div>
       <div className="memeText text-center">
         <div className="upperText">
-          <p>{upperText}</p>
+          <p style={{fontSize: formatText, color: textColor}}>{upperText}</p>
         </div>
         <img src={`${url}` || '../../img/400x300.png'}
         alt="photo" />
         <div className="lowerText">
-          <p>{lowerText}</p>
+          <p style={{fontSize: formatText, color: textColor}}>{lowerText}</p>
         </div>
       </div>
     </div>

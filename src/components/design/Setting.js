@@ -3,7 +3,7 @@ import './Setting.css';
 
 
 
-const Setting = ({color, text, uploadImage}) => {
+const Setting = ({color, text, uploadImage, textSize, textColor}) => {
   return (
     <div className="card bg-light container">
       <h3 className="text-center">Settings</h3>
@@ -26,10 +26,10 @@ const Setting = ({color, text, uploadImage}) => {
       </div>
       <hr />
       <h4>Text size</h4>
-        <input type="range" min="0" max="100"/>
+        <input onChange={textSize} type="range" min="30" max="42" />
       <hr />
       <h4>Text Color</h4>
-        <select className="form-control form-control-sm mb-2">
+        <select onChange={textColor} className="form-control form-control-sm mb-2">
           <option>White</option>
           <option>Black</option>
           <option>Red</option>
