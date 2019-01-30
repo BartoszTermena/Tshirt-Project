@@ -3,7 +3,7 @@ import './Setting.css';
 
 
 
-const Setting = ({color, text, uploadImage, textSize, textColor}) => {
+const Setting = ({submit, color, text, uploadImage, textSize, textColor}) => {
   return (
     <div className="card bg-light container">
       <h3 className="text-center">Settings</h3>
@@ -36,7 +36,10 @@ const Setting = ({color, text, uploadImage, textSize, textColor}) => {
           <option>Blue</option>
         </select>
       <hr />
-      <button className="btn btn-primary btn-sm mb-2">Save</button>
+      <button 
+      className="btn btn-primary btn-sm mb-2"
+      onClick={submit}
+      >Save</button>
     </div>
   )
 }

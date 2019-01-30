@@ -23,33 +23,41 @@ export default class Product extends Component {
       <ProductWrapper className="card-deck row mr-2" onClick={this.handleModal}>
         <div className="card-group ">
         <div className="card mt-4">
-            <div className="img-container">
-              <img src={img} alt="img" className="card-img-top" />
+        <div className="img-container">
+          <div className="card card-content align-items-center card-img-top" >
+            <div className="imgTshirt text-center">
+              <img className="card-img-top" src={`../../img/black.png`} alt="black Tshirt" />
             </div>
-          <div className="card-footer d-flex justify-content-between">
+                  <div className="memeText text-center " >
+                    <div className="upperText">
+                      <p>upp</p>
+                    </div>
+                    <img className="size-img" src={'../../img/400x300.png'}
+                    alt="photo" />
+                    <div className="lowerText">
+                      <p>lower</p>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div className="card-footer d-flex justify-content-between mt-4">
             <p className="text-card align-self-center mb-0">title </p>
-            <h5 className="text-card mb-0">
+            <h5 className="text-card mb-0 mt-4">
               <span className="mr-1"> $</span>
               12.99
             </h5>
           </div>
+                </div>
+           
         </div> 
         </div>
+        
+         
       </ProductWrapper>
       </Fragment>
     )
   }
 }
-Product.propTypes = {
-  product: PropTypes.shape({
-    id:PropTypes.number,
-    img:PropTypes.string,
-    titile:PropTypes.string,
-    price:PropTypes.number,
-    inCart:PropTypes.bool
-  }).isRequired
-};
-
 
 const ProductWrapper = styled.div`
   .card {
@@ -77,6 +85,8 @@ const ProductWrapper = styled.div`
   }
   .card-img-top{
     transition: all 0.5s linear;
+    max-width: 250px;
+    max-heihgt: 300px;
   }
   .img-container:hover .card-img-top{
     transform:scale(1.2);
@@ -104,4 +114,32 @@ const ProductWrapper = styled.div`
     color: var(--primary-color);
     cursor:pointer;
   }
+  .imgTshirt {
+    position: relative;
+   
+}
+.memeText {
+    position: absolute;
+    top: 50px;
+}
+.memeText img {
+    max-width: 300px;
+    max-height: 400px;
+    border: #fff solid 6px;
+}
+.memeText p {
+    font-family: Impact, sans-serif;
+    color: #fff;
+}
+.lowerText p {
+  font-size:12px;
+}
+.upperText p {
+  font-size:12px;
+}
+.size-img {
+  max-width: 90px !important;
+  max-height: 100px !important;
+}
+
 `;

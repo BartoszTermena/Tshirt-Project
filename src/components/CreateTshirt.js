@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import Display from './design/Display';
 import Setting from './design/Setting';
 import { storage } from '../config/firebaseConfig';
+import {createTshirt} from '../store/actions/storeActions';
+import {connect} from 'react-redux';
 
 class Dashboard extends Component {
   state = {
@@ -61,11 +63,15 @@ class Dashboard extends Component {
       textColor: e.target.value
     })
   }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.createTshirt(this.state)
+  }
   render() {
     return (
       <Fragment>
      
-      <div className="container py-5">
+      <div className="container-fluid py-5">
       <div className="row">
         <div className="col-lg-8">
           <Display 
@@ -80,6 +86,7 @@ class Dashboard extends Component {
           uploadImage={this.handleImage}
           textSize={this.handleTextSize}
           textColor={this.handleTextColor}
+          submit={this.handleSubmit}
           />
         </div>
       </div>
@@ -88,4 +95,9 @@ class Dashboard extends Component {
     )
   }
 }
-export default Dashboard;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createTshirt: (tshirt) => dispatch(createTshirt(tshirt))
+  }
+}
+export default connect(null, mapDispatchToProps)(Dashboard);

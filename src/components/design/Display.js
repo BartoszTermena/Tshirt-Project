@@ -1,26 +1,34 @@
-import React from 'react'
+import React, { Component } from 'react';
+
 import './Display.css';
 
 
-const Display = ({display, formatText}) => {
-  const {color, upperText, lowerText, url, textColor} = display;
-  const imgSrc = `../../img/${color}.png`
-  return (
-    <div className="card card-content">
-      <div className="imgTshirt text-center">
-        <img className="img-responsive" src={imgSrc} alt="black Tshirt" />
-      </div>
-      <div className="memeText text-center">
-        <div className="upperText">
-          <p style={{fontSize: formatText, color: textColor}}>{upperText}</p>
+class Display extends Component {
+  
+  render(){
+    const {display, formatText} = this.props;
+    const {color, upperText, lowerText, url, textColor} = display;
+    const imgSrc = `../../img/${color}.png`
+
+    return (
+      <div className="card card-content align-items-center" >
+        <div className="imgTshirt text-center">
+          <img className="img-responsive" src={imgSrc} alt="black Tshirt" />
         </div>
-        <img src={`${url}` || '../../img/400x300.png'}
-        alt="photo" />
-        <div className="lowerText">
-          <p style={{fontSize: formatText, color: textColor}}>{lowerText}</p>
+        <div className="memeText text-center" >
+          <div className="upperText">
+            <p style={{fontSize: formatText, color: textColor}}>{upperText}</p>
+          </div>
+          <img className="size-img" src={`${url}` || '../../img/400x300.png'}
+          alt="photo" />
+          <div className="lowerText">
+            <p style={{fontSize: formatText, color: textColor}}>{lowerText}</p>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
+
+
 export default Display;
