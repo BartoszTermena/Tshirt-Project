@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Montserrat');
+:root {
+  --primary-color: #2a2a72;
+  --secondary-color: #f3f3f3;
+  --mainDark: #232528;
+  --mainYellow:#ffa400;
+  --mainBlue: #009ffd;
+}
+body {
+  font-family: 'Monsterrat', serif !important;
+  background: var(--secondary-color) !important;
+  color: var(--mainDark) !important;
+  font-size: 2rem !important;
+}
+body::-webkit-scrollbar {
+  width: 0.6em;
+}
+
+body::-webkit-scrollbar-thumb {
+background-color: #e2e2e2;
+outline: 1px solid slategrey;
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.text-blue {
+  color: var(--primary-color);
+  font-size: 2.2rem !important;
+}
