@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {ButtonContainer} from './Button';
+import { connect } from 'react-redux';
 
-class Navbar extends Component {
-  render() {
+const Navbar = () => {
     return (
       <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
         <Link to="/" className="logo-img">
@@ -18,20 +18,32 @@ class Navbar extends Component {
           <li className="nav-item ml-2">
             <Link to="/create" className="nav-link">
             <ButtonContainer>
-              <i className="fas fa-mobile"></i> Create 👕
+               Create 👕
             </ButtonContainer>
             </Link>
           </li>
         </ul>
-          <Link to="/" className="ml-auto">
-            <ButtonContainer>
-              <i className="fas fa-cart-plus"></i> My 🛒
-            </ButtonContainer>
-          </Link>
+        <ul className="navbar-nav align-items-center ml-auto">
+          <li className="nav-item ml-2">
+            <Link to="/cart" className="ml-auto">
+              <ButtonContainer>
+                 My 🛒
+              </ButtonContainer>
+            </Link>
+          </li>
+          <li className="nav-item ml-2">
+            <Link to="/cart" className="ml-auto">
+              <ButtonContainer>
+                 Logout
+              </ButtonContainer>
+            </Link>
+          </li>
+        </ul>
+          
       </NavWrapper>
     )
   }
-}
+
 const NavWrapper = styled.nav`
   background: var(--secondary-color);
   border-bottom: 0.1rem solid #e1e4e8;
@@ -47,5 +59,10 @@ const NavWrapper = styled.nav`
   }
 `;
 
+const mapStateToProps = state => {
+  console.log(state)
+  return {
 
-export default Navbar
+  }
+}
+export default connect(mapStateToProps)(Navbar)

@@ -16,8 +16,8 @@ class Dashboard extends Component {
               <div className="row justify-content-center">
                 {tshirts && tshirts.map(shirt => {
                   return (
-                    <WrapperLink to={`/${shirt.id}`}>
-                      <Tshirts key={shirt.id} shirt={shirt}/>
+                    <WrapperLink key={shirt.id} to={`/${shirt.id}`}>
+                      <Tshirts shirt={shirt}/>
                     </WrapperLink>
                   )
                 })}
