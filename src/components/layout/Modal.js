@@ -22,7 +22,7 @@ const Modal = ({modal, handleModal, data}) => {
                                         <img className="card-img-top" src={`../../img/${color}.png`} alt="black Tshirt" />
                                     </div>
                                 <div className="memeText text-center " >
-                                <   div className="upperText mt-4">
+                                <   div className="upperText mt-5">
                                         <p style={{fontSize: textSize*0.3, color: textColor}}>{upperText}</p>
                                         </div>
                                         <img className="size-img" src={`${url} || '../../img/400x300.png'`}

@@ -18,14 +18,14 @@ class Navbar extends Component {
           <li className="nav-item ml-2">
             <Link to="/create" className="nav-link">
             <ButtonContainer>
-              <i className="fas fa-mobile"></i> Create Tshirt
+              <i className="fas fa-mobile"></i> Create 👕
             </ButtonContainer>
             </Link>
           </li>
         </ul>
           <Link to="/" className="ml-auto">
             <ButtonContainer>
-              <i className="fas fa-cart-plus"></i> My Cart
+              <i className="fas fa-cart-plus"></i> My 🛒
             </ButtonContainer>
           </Link>
       </NavWrapper>

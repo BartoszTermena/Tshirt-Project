@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import Spinner from '../components/layout/Spinner';
+import {Link} from 'react-router-dom';
+import styled from 'styled-components';
 
 class Dashboard extends Component {
   render() {
@@ -14,7 +16,9 @@ class Dashboard extends Component {
               <div className="row justify-content-center">
                 {tshirts && tshirts.map(shirt => {
                   return (
-                  <Tshirts key={shirt.id} shirt={shirt}/>
+                    <WrapperLink to={`/${shirt.id}`}>
+                      <Tshirts key={shirt.id} shirt={shirt}/>
+                    </WrapperLink>
                   )
                 })}
               </div>
@@ -34,6 +38,10 @@ class Dashboard extends Component {
     )
   }
 }
+const WrapperLink = styled(Link)`
+  text-decoration: none !important;
+  color: black;
+`
 const mapStateToPropst = (state) => {
 
   return {

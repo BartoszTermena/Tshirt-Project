@@ -1,27 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Modal from '../layout/Modal';
-import Spinner from '../layout/Spinner';
+
 
 export default class Product extends Component {
-  state = {
-    openModal: false
-  }
-  handleModal = () => {
-    this.setState({
-      openModal: !this.state.openModal
-    })
-  }
+  
   render() {
       const {author, color, createdAt, lowerText, textColor, textSize, upperText, url} = this.props.shirt;
       return (
       <Fragment> 
-        <Modal 
-        handleModal={this.handleModal} 
-        modal={this.state.openModal}
-        data={this.props.shirt}/>
-      <ProductWrapper className="card-deck row mr-2" onClick={this.handleModal}>
+      <ProductWrapper className="card-deck row mr-2">
         <div className="card-group ">
         <div className="card mt-4">
         <div className="img-container">
