@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Modal from '../layout/Modal';
+import Spinner from '../layout/Spinner';
 
 export default class Product extends Component {
   state = {
@@ -14,7 +15,7 @@ export default class Product extends Component {
   }
   render() {
       const {author, color, createdAt, lowerText, textColor, textSize, upperText, url} = this.props.shirt;
-    return (
+      return (
       <Fragment> 
         <Modal 
         handleModal={this.handleModal} 
@@ -71,7 +72,6 @@ const ProductWrapper = styled.div`
   }
   &:hover{
     .card{
-      border:0.04rem solid rgba(0,0,0,0.2);
       box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.2);
     }
     .card-footer{
@@ -125,7 +125,7 @@ const ProductWrapper = styled.div`
 .memeText img {
     max-width: 300px;
     max-height: 400px;
-    border: #fff solid 6px;
+    border: #fff solid 3px;
 }
 .memeText p {
     font-family: Impact, sans-serif;

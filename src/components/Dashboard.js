@@ -3,23 +3,33 @@ import Tshirts from './products/Tshirts';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import Spinner from '../components/layout/Spinner';
 
 class Dashboard extends Component {
   render() {
     const {tshirts} = this.props;
-
+    let data;
+    if (tshirts) {
+     data = <div className="container-fluid py-5 ">
+              <div className="row justify-content-center">
+                {tshirts && tshirts.map(shirt => {
+                  return (
+                  <Tshirts key={shirt.id} shirt={shirt}/>
+                  )
+                })}
+              </div>
+             </div>
+    } else {
+      data = <div className="container-fluid py-5 mt-5">
+                <div className="row justify-content-center">
+                  <Spinner />
+                </div>
+              </div>
+    }
     return (
         <React.Fragment>
              Dashboard
-          <div className="container-fluid py-5 ">
-            <div className="row justify-content-center">
-            {tshirts && tshirts.map(shirt => {
-              return (
-              <Tshirts key={shirt.id} shirt={shirt}/>
-              )
-            })}
-            </div>
-        </div>
+          {data}
       </React.Fragment>
     )
   }

@@ -26,6 +26,9 @@ class Dashboard extends Component {
   }
   handleImage = e => {
     if (e.target.files[0]) {
+      this.setState({
+        url: "loading"
+      })
       const image = (e.target.files[0]);
       const uploadTask = 
       storage.ref(`images/${image.name}`)
