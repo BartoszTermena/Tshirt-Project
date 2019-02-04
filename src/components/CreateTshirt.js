@@ -4,6 +4,9 @@ import Setting from './design/Setting';
 import { storage } from '../config/firebaseConfig';
 import {createTshirt} from '../store/actions/storeActions';
 import {connect} from 'react-redux';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom'
 
 class Dashboard extends Component {
   state = {
@@ -73,6 +76,8 @@ class Dashboard extends Component {
 
   }
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to="/signin" />
     return (
       <Fragment>
      
@@ -100,9 +105,16 @@ class Dashboard extends Component {
     )
   }
 }
+const mapStateToPropst = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
 const mapDispatchToProps = (dispatch) => {
   return {
     createTshirt: (tshirt) => dispatch(createTshirt(tshirt))
   }
 }
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default compose(connect(mapStateToPropst, mapDispatchToProps),firestoreConnect([
+  { collection: 'tshirts' }
+]))(Dashboard);

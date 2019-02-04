@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import {ButtonContainer} from './Button';
 import { connect } from 'react-redux';
+import SignedOutLinks from './SignedOutLinks';
+import SignedInLinks from './SignedInLinks';
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { auth } = props;
+  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
     return (
       <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
         <Link to="/" className="logo-img">
@@ -14,32 +17,7 @@ const Navbar = () => {
           className="navbar-brand"
           alt="logo"/>
         </Link>
-        <ul className="navbar-nav align-items-center">
-          <li className="nav-item ml-2">
-            <Link to="/create" className="nav-link">
-            <ButtonContainer>
-               Create 👕
-            </ButtonContainer>
-            </Link>
-          </li>
-        </ul>
-        <ul className="navbar-nav align-items-center ml-auto">
-          <li className="nav-item ml-2">
-            <Link to="/cart" className="ml-auto">
-              <ButtonContainer>
-                 My 🛒
-              </ButtonContainer>
-            </Link>
-          </li>
-          <li className="nav-item ml-2">
-            <Link to="/cart" className="ml-auto">
-              <ButtonContainer>
-                 Logout
-              </ButtonContainer>
-            </Link>
-          </li>
-        </ul>
-          
+          {links}
       </NavWrapper>
     )
   }
@@ -60,9 +38,8 @@ const NavWrapper = styled.nav`
 `;
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
-
+    auth: state.firebase.auth
   }
 }
 export default connect(mapStateToProps)(Navbar)

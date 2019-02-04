@@ -7,6 +7,7 @@ import Spinner from '../components/layout/Spinner';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
+
 class Dashboard extends Component {
   render() {
     const {tshirts} = this.props;
@@ -43,9 +44,9 @@ const WrapperLink = styled(Link)`
   color: black;
 `
 const mapStateToPropst = (state) => {
-
   return {
-    tshirts: state.firestore.ordered.tshirts
+    tshirts: state.firestore.ordered.tshirts,
+    auth: state.firebase.auth
   }
 }
 export default compose(

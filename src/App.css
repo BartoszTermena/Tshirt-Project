@@ -25,3 +25,6 @@ outline: 1px solid slategrey;
   color: var(--primary-color);
   font-size: 2.2rem !important;
 }
+.text-break {
+  word-break: break-all;
+}
