@@ -4,8 +4,6 @@ import Setting from './design/Setting';
 import { storage } from '../config/firebaseConfig';
 import {createTshirt} from '../store/actions/storeActions';
 import {connect} from 'react-redux';
-import { compose } from 'redux';
-import { firestoreConnect } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom'
 
 class Dashboard extends Component {
@@ -115,6 +113,4 @@ const mapDispatchToProps = (dispatch) => {
     createTshirt: (tshirt) => dispatch(createTshirt(tshirt))
   }
 }
-export default compose(connect(mapStateToPropst, mapDispatchToProps),firestoreConnect([
-  { collection: 'tshirts' }
-]))(Dashboard);
+export default connect(mapStateToPropst, mapDispatchToProps)(Dashboard);

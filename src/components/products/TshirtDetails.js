@@ -8,8 +8,18 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components'
 
 const TshirtDetails = (props) => {
-    const {shirt} = props;
-
+    const {shirt, auth} = props;
+    let tocart;
+    if (auth.uid) {
+        tocart = <Link to="/cart">
+        <ButtonContainer
+        >
+            Add to cart
+        </ButtonContainer>
+        </Link>
+    } else {
+        tocart = null;
+    }
     if(shirt) {
         return (
             <TshirtWrapper>
@@ -38,16 +48,14 @@ const TshirtDetails = (props) => {
       <h4>Price: 12.99$</h4>
       <hr />
       <br />
+      <Link to="/">
         <ButtonContainer
         >
             Back to store
         </ButtonContainer>
-        <Link to="/cart">
-        <ButtonContainer
-        >
-            Add to cart
-        </ButtonContainer>
         </Link>
+
+        {tocart}
         </div>
         </div>
       </div>
@@ -69,6 +77,7 @@ const mapStateToProps = (state, ownProps) => {
     const tshirts = state.firestore.data.tshirts;
     const shirt = tshirts ? tshirts[id] : null;
     return {
+        auth: state.firebase.auth,
         shirt: shirt
     };
 }
