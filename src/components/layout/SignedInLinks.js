@@ -21,7 +21,7 @@ const SignedInLinks = (props) => {
         <li className="nav-item ml-2">
         <Link to="/" className="ml-auto">
             <ButtonContainer>
-                NN
+                {props.profile.initials}
             </ButtonContainer>
         </Link>
         </li>

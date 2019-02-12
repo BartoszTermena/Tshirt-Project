@@ -6,8 +6,9 @@ import SignedOutLinks from './SignedOutLinks';
 import SignedInLinks from './SignedInLinks';
 
 const Navbar = (props) => {
-  const { auth } = props;
-  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+  const { auth, profile } = props;
+    console.log(props)
+  const links = auth.uid ? <SignedInLinks profile={profile}/> : <SignedOutLinks />;
     return (
       <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
         <Link to="/" className="logo-img">
@@ -39,7 +40,8 @@ const NavWrapper = styled.nav`
 
 const mapStateToProps = state => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 export default connect(mapStateToProps)(Navbar)

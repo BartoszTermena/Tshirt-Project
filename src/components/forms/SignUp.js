@@ -40,7 +40,7 @@ class SignUp extends Component {
                     <div className="input-group-prepend">
                         <span className="input-group-text"> <i className="fa fa-user"></i> </span>
                     </div>
-                    <input id="lastName" className="form-control" placeholder="Last name" type="text"/>
+                    <input onChange={this.handleChange} id="lastName" className="form-control" placeholder="Last name" type="text"/>
                 </div> 
                 <div className="form-group input-group">
                     <div className="input-group-prepend">
@@ -57,7 +57,8 @@ class SignUp extends Component {
                 <div className="form-group">
                     <button type="submit" className="btn btn-primary btn-block"> Create Account  </button>
                 </div>   
-                <p className="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
+                <p className="text-center">Have an account? <a href="">Log In</a> </p>           
+                { authError ? <p className="text-center text-danger">{authError}</p> : null }                                                                                                                       
             </form>
             </article>
             </div> 
