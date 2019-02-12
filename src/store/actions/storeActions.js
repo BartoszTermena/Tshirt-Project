@@ -2,10 +2,12 @@ export const createTshirt = (tshirt) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         //make async call to database 
         const firestore = getFirestore();
+        const profile = getState().firebase.profile;
+        const authorId = getState().firebase.auth.uid;
         firestore.collection('tshirts').add({
             ...tshirt,
-            author: 'Chandler',
-            authorId: 123,
+            author: profile.firstName,
+            authorId: authorId,
             createdAt: new Date()
         })
         .then(() => {
