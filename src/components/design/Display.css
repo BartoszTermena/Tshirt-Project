@@ -1,6 +1,6 @@
 .imgTshirt {
     position: relative;
-   
+    
 }
 .memeText {
     position: absolute;
@@ -22,4 +22,7 @@
 .size-img {
     max-width: 300px !important;
     max-height: 400px !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 50% !important;
 }
