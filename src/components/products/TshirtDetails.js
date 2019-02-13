@@ -9,17 +9,7 @@ import styled from 'styled-components'
 
 const TshirtDetails = (props) => {
     const {shirt, auth} = props;
-    let tocart;
-    if (auth.uid) {
-        tocart = <Link to="/cart">
-        <ButtonContainer
-        >
-            Add to cart
-        </ButtonContainer>
-        </Link>
-    } else {
-        tocart = null;
-    }
+    
     if(shirt) {
         return (
             <TshirtWrapper>
@@ -54,8 +44,6 @@ const TshirtDetails = (props) => {
             Back to store
         </ButtonContainer>
         </Link>
-
-        {tocart}
         </div>
         </div>
       </div>

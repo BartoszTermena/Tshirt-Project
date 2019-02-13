@@ -46,6 +46,7 @@ class Dashboard extends Component {
         .child(image.name)
         .getDownloadURL()
         .then(url => {
+          console.log("url : ", url)
           this.setState({
             url
           })

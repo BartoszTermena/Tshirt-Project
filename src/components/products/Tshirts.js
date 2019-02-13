@@ -21,7 +21,7 @@ export default class Product extends Component {
                     <div className="upperText">
                       <p style={{fontSize: textSize*0.3, color: textColor}}>{upperText}</p>
                     </div>
-                    <img className="size-img" src={`${url} || '../../img/400x300.png'`}
+                    <img className="size-img" src={url}
                     alt="photo" />
                     <div className="lowerText">
                       <p style={{fontSize: textSize*0.3, color: textColor}}>{lowerText}</p>

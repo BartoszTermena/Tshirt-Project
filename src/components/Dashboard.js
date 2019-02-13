@@ -32,8 +32,10 @@ class Dashboard extends Component {
               </div>
     }
     return (
-        <React.Fragment>
-             Dashboard
+        <React.Fragment >
+          <div className="text-center mt-3">
+          User's Shirts
+             </div>
           {data}
       </React.Fragment>
     )
@@ -52,6 +54,6 @@ const mapStateToPropst = (state) => {
 export default compose(
   connect(mapStateToPropst),
   firestoreConnect([
-    { collection: 'tshirts' }
+    { collection: 'tshirts', orderBy: ['createdAt', 'desc'] }
   ])
 )(Dashboard);
